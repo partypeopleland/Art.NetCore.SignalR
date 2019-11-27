@@ -4,11 +4,21 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "genFile": "webpack --profile --json > stats.json",
+    "analyz": "webpack-bundle-analyzer --port 8888 ./dist/stats.json"
   },
   "author": "art <partypeopleland@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "@microsoft/signalr": "^3.0.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.4",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.2.0",
+    "style-loader": "^1.0.0",
+    "webpack": "^4.41.2",
+    "webpack-bundle-analyzer": "^3.6.0",
+    "webpack-cli": "^3.3.10"
   }
 }

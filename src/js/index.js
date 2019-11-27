@@ -1,7 +1,11 @@
+const signalR = require('@microsoft/signalr');
+
 // 建立SignalR連接
-var connection = new signalR.HubConnectionBuilder().withUrl('/chatHub').build();
+let connection = new signalR.HubConnectionBuilder().withUrl('/chatHub').build();
+
 // 傳送訊息事件
 connection.on('ReceiveMessage', (user, message) => appendMessage(`${user}:${message}`));
+
 // 連接事件
 connection.start().catch(err => console.error(err.toString()));
 
