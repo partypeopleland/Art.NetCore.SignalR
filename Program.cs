@@ -41,6 +41,6 @@ namespace Art.NetCore.SignalR
                     logging.SetMinimumLevel(LogLevel.Trace);
                 })
                 .UseNLog();
-        }
+        }k
     }
 }

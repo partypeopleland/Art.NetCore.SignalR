@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev": "webpack --mode=development",
     "genFile": "webpack --profile --json > stats.json",
     "analyz": "webpack-bundle-analyzer --port 8888 ./dist/stats.json"
   },

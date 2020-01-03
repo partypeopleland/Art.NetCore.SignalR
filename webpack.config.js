@@ -2,12 +2,11 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 var path = require('path');
 
 module.exports = {
-	mode: 'development',
 	entry: {
 		index: './src/js/index.js',
 	},
 	output: {
-		path: path.resolve(__dirname, 'wwwroot/js'),
+		path: path.resolve(__dirname, 'dist'),
 		filename: '[name].js',
 	},
 	module: {

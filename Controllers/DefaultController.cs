@@ -14,6 +14,7 @@ namespace Art.NetCore.SignalR.Controllers
             _logger.LogDebug(1, "NLog injected into HomeController");
         }
 
+        [Route("")]
         public IActionResult Index(string name)
         {
             if (string.IsNullOrEmpty(name)) name = "Art";

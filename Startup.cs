@@ -1,7 +1,10 @@
+using System.IO;
 using Art.NetCore.SignalR.Hub;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 
 namespace Art.NetCore.SignalR
@@ -26,6 +29,12 @@ namespace Art.NetCore.SignalR
 
             app.UseDefaultFiles();
             app.UseStaticFiles();
+            app.UseStaticFiles(new StaticFileOptions()
+            {
+                FileProvider = new PhysicalFileProvider(
+                    Path.Combine(env.ContentRootPath, @"dist")),
+                RequestPath = new PathString("/js")
+            });
             app.UseMvcWithDefaultRoute();
             app.UseRouting();
             app.UseEndpoints(endpoints => { endpoints.MapHub<ChatHub>("/chatHub"); });
